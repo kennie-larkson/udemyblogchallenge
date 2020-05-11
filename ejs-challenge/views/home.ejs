@@ -1,0 +1,20 @@
+<%- include('partials/header') %> 
+
+<h2>This is the Home Page</h2>
+
+<p>
+    <%= homeStartingContent %> 
+</p>
+
+        <% postList.forEach(element => { %>
+            
+                <p ><h2> <%= element.title %></h2> </p>
+                <p ><%= element.post %> </p>
+                <hr>
+                <br>
+            
+           
+        <% }) %>
+    
+
+<%- include('partials/footer') %> 
