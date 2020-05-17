@@ -6,15 +6,29 @@
     <%= homeStartingContent %> 
 </p>
 
-        <% postList.forEach(element => { %>
+
+        <% postList.forEach (post => { %>
             
-                <p ><h2> <%= element.title %></h2> </p>
-                <p ><%= element.post %> </p>
+                <p ><h2> <%= post.title %></h2> </p>
+
+                <% const query = post.title.toLowerCase() %> 
+                <% const length = 100  %> 
+                <% const str = post.body %> 
+                <% const ending = `...` %> 
+                <% if (str.length > length) { %>
+                    <% const truncatedstr = str.substring(0,length - ending.length) + ending %> 
+                    <p><%= truncatedstr %> <a href="/post/<%= post.title %> " rel="noopener noreferrer">Read more</a> </p>
+                 
+                <% }else{ %>
+                    
+                 
+                <p ><%= str %> </p>
+                <% } %> 
                 <hr>
                 <br>
             
            
-        <% }) %>
+        <% }); %>
     
 
 <%- include('partials/footer') %> 
